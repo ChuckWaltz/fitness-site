@@ -3,8 +3,8 @@
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
     <div id="top-section">
-      <div id="ts-circle">
-        <div id="ts-image"></div>
+      <div id="ts-circle" class="wow fadeIn">
+        <div id="ts-image" class="wow fadeIn" data-wow-delay="0.5s"></div>
         <div id="ts-circle-text">TRU FIT</div>
       </div>
     </div>

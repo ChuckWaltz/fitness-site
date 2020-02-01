@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <div id="logo-container" class="wow fadeIn">
+    <div id="nav" class="wow slideInRight">
+      <div id="logo-container" class="wow fadeIn" data-wow-delay="1s">
         <img src="@/assets/dumbbell.svg" />
       </div>
       <div id="nav-menu-button"></div>
       <ul id="nav-list">
-        <li>ABOUT</li>
-        <li>SERVICES</li>
-        <li>INSTRUCTORS</li>
-        <li>CONTACT</li>
+        <li class="wow fadeInDown" data-wow-delay="1s">ABOUT</li>
+        <li class="wow fadeInDown" data-wow-delay="1.25s">SERVICES</li>
+        <li class="wow fadeInDown" data-wow-delay="1.5s">INSTRUCTORS</li>
+        <li class="wow fadeInDown" data-wow-delay="1.75s">CONTACT</li>
       </ul>
       <!-- <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>-->
@@ -18,12 +18,25 @@
   </div>
 </template>
 
+<script>
+import WOW from "wow.js";
+import "./assets/js/animate.css";
+export default {
+  mounted() {
+    new WOW().init();
+  }
+};
+</script>
+
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Exo:700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+.wow {
+  visibility: hidden;
 }
 #app {
   font-family: "Exo", sans-serif;
@@ -44,8 +57,7 @@
   top: 0;
 
   #logo-container {
-    position: relative;
-    float: left;
+    position: absolute;
     padding: 12px;
     height: 100%;
 
