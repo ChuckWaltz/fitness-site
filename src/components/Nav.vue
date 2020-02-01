@@ -32,7 +32,7 @@ export default {
   /* right: 0;
   height: 100vh; */
   height: 50px;
-  width: calc(100vw - 16px);
+  width: 100vw;
   top: 0;
 
   #logo-container {
