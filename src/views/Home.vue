@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div id="home" class="scrollSection1">
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
     <div id="carousel-buttons">
@@ -34,30 +34,82 @@
 
 export default {
   name: "home",
-  scrollCount: 0,
-  scrollDirection: "down",
+  data() {
+    return {
+      scrollCount: 0,
+      scrollDirection: "down",
+      canAddScroll: true,
+      currentScrollSection: 1,
+      scrollSectionsCount: 3
+    };
+  },
   components: {
     //HelloWorld
   },
   mounted() {
     window.addEventListener("wheel", event => {
+      if (this.canAddScroll === false) return;
+      this.canAddScroll = false;
       const delta = Math.sign(event.deltaY);
       const latestDirection = delta === 1 ? "down" : "up";
       if (latestDirection !== this.scrollDirection) {
         this.scrollDirection = latestDirection;
-        this.scrollCount = 0;
+        this.scrollCount = 1;
       } else {
         this.scrollCount += 1;
+        if (this.scrollCount >= 3) {
+          this.scrollPage();
+          return;
+        }
       }
+
+      setTimeout(() => {
+        this.canAddScroll = true;
+      }, 100);
 
       window.console.log(this.scrollDirection, this.scrollCount);
     });
+  },
+  methods: {
+    scrollPage() {
+      window.console.log("Go!");
+      if (this.scrollDirection === "up" && this.currentScrollSection === 1) {
+        this.canAddScroll = true;
+        this.scrollCount = 0;
+        return;
+      } else if (
+        this.scrollDirection === "down" &&
+        this.currentScrollSection === this.scrollSectionsCount
+      ) {
+        this.canAddScroll = true;
+        this.scrollCount = 0;
+        return;
+      }
+      this.canAddScroll = false;
+      this.scrollCount = 0;
+      document
+        .getElementById("home")
+        .classList.remove(`scrollSection${this.currentScrollSection}`);
+      if (this.scrollDirection === "down") {
+        this.currentScrollSection++;
+      } else {
+        this.currentScrollSection--;
+      }
+      document
+        .getElementById("home")
+        .classList.add(`scrollSection${this.currentScrollSection}`);
+
+      setTimeout(() => {
+        this.canAddScroll = true;
+        this.scrollCount = 0;
+      }, 1000);
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.home {
+#home {
   height: 100vh;
   position: absolute;
 }
