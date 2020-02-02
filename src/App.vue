@@ -16,7 +16,7 @@ export default {
   },
 
   mounted() {
-    new WOW().init();
+    window.wow = new WOW().init();
   }
 };
 </script>
@@ -36,8 +36,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  overflow-x: hidden;
+  color: white;
   background-color: black;
 }
 </style>

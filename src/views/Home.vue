@@ -3,11 +3,20 @@
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
     <div id="carousel-buttons">
-      <div class="carouselButton carouselButtonActive"></div>
-      <div class="carouselButton"></div>
-      <div class="carouselButton"></div>
+      <div
+        class="carouselButton"
+        v-bind:class="{ carouselButtonActive: currentScrollSection === 1 }"
+      ></div>
+      <div
+        class="carouselButton"
+        v-bind:class="{ carouselButtonActive: currentScrollSection === 2 }"
+      ></div>
+      <div
+        class="carouselButton"
+        v-bind:class="{ carouselButtonActive: currentScrollSection === 3 }"
+      ></div>
     </div>
-    <div id="top-section">
+    <div id="top-section" class="scrollSection">
       <div id="ts-circle" class="wow fadeIn">
         <div id="ts-image" class="wow fadeIn" data-wow-delay="0.5s"></div>
         <div id="ts-circle-text">TRU FIT</div>
@@ -25,6 +34,18 @@
         </div>
       </div>
     </div>
+    <div id="about-section" class="scrollSection">
+      <div class="sectionText">ABOUT</div>
+    </div>
+    <div id="services-section" class="scrollSection">
+      <div class="sectionText">SERVICES</div>
+    </div>
+    <div id="instructors-section" class="scrollSection">
+      <div>INSTRUCTORS</div>
+    </div>
+    <div id="contact-section" class="scrollSection">
+      <div>CONTACT</div>
+    </div>
   </div>
 </template>
 
@@ -36,20 +57,24 @@ export default {
   name: "home",
   data() {
     return {
+      // -- Scrolling Variables
       scrollCount: 0,
       scrollDirection: "down",
-      canAddScroll: true,
+      canAddScrollCount: true,
       currentScrollSection: 1,
-      scrollSectionsCount: 3
+      scrollSectionsCount: 3,
+      touchStart: null
+      // -- End Scrolling Variables
     };
   },
   components: {
     //HelloWorld
   },
   mounted() {
+    // Handle default scrolling
     window.addEventListener("wheel", event => {
-      if (this.canAddScroll === false) return;
-      this.canAddScroll = false;
+      if (this.canAddScrollCount === false) return;
+      this.canAddScrollCount = false;
       const delta = Math.sign(event.deltaY);
       const latestDirection = delta === 1 ? "down" : "up";
       if (latestDirection !== this.scrollDirection) {
@@ -64,28 +89,50 @@ export default {
       }
 
       setTimeout(() => {
-        this.canAddScroll = true;
+        this.canAddScrollCount = true;
       }, 100);
+    });
 
-      window.console.log(this.scrollDirection, this.scrollCount);
+    // Handle mobile touch scrolling
+    window.addEventListener("touchstart", event => {
+      this.touchStart = event.touches[0].clientY;
+    });
+    window.addEventListener("touchmove", event => {
+      if (this.canAddScrollCount === false) return;
+      this.canAddScrollCount = false;
+      var touchCurrent = event.touches[0].clientY;
+      const latestDirection = this.touchStart > touchCurrent ? "down" : "up";
+      if (latestDirection !== this.scrollDirection) {
+        this.scrollDirection = latestDirection;
+        this.scrollCount = 1;
+      } else {
+        this.scrollCount += 1;
+        if (this.scrollCount >= 3) {
+          this.scrollPage();
+          return;
+        }
+      }
+
+      setTimeout(() => {
+        this.canAddScrollCount = true;
+      }, 50);
     });
   },
   methods: {
     scrollPage() {
-      window.console.log("Go!");
       if (this.scrollDirection === "up" && this.currentScrollSection === 1) {
-        this.canAddScroll = true;
+        this.canAddScrollCount = true;
         this.scrollCount = 0;
         return;
       } else if (
         this.scrollDirection === "down" &&
         this.currentScrollSection === this.scrollSectionsCount
       ) {
-        this.canAddScroll = true;
+        this.canAddScrollCount = true;
         this.scrollCount = 0;
         return;
       }
-      this.canAddScroll = false;
+      this.canAddScrollCount = false;
       this.scrollCount = 0;
       document
         .getElementById("home")
@@ -99,8 +146,11 @@ export default {
         .getElementById("home")
         .classList.add(`scrollSection${this.currentScrollSection}`);
 
+      document.getElementById("home").style.bottom = `${this
+        .currentScrollSection - 1}00vh`;
+
       setTimeout(() => {
-        this.canAddScroll = true;
+        this.canAddScrollCount = true;
         this.scrollCount = 0;
       }, 1000);
     }
@@ -111,7 +161,25 @@ export default {
 <style lang="scss" scoped>
 #home {
   height: 100vh;
-  position: absolute;
+  position: fixed;
+  bottom: 0;
+
+  transition: bottom 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  .scrollSection {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    .sectionText {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: black;
+      font-size: 32px;
+    }
+  }
 }
 
 #carousel-buttons {
@@ -121,6 +189,7 @@ export default {
   left: 0;
   margin-left: 35px;
   z-index: 100;
+
   .carouselButton {
     margin-bottom: 15px;
     display: block;
@@ -137,11 +206,6 @@ export default {
 }
 
 #top-section {
-  height: 100vh;
-  min-height: 400px;
-  width: 100vw;
-  overflow: hidden;
-  position: relative;
   background: radial-gradient(circle at center, rgb(58, 58, 58), black 40%);
 
   #ts-circle {
@@ -195,6 +259,7 @@ export default {
 
     #ts-content-button {
       cursor: pointer;
+
       h3 {
         margin-top: 10px;
         color: white;
@@ -213,6 +278,14 @@ export default {
       }
     }
   }
+}
+
+#about-section {
+  background-color: white;
+}
+
+#services-section {
+  background-color: black;
 }
 
 // Large devices (desktops, 992px and up)
