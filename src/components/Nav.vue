@@ -1,5 +1,5 @@
 <template>
-  <div id="nav" class="anim animSlideInRight">
+  <div id="nav" class="anim animSlideInRight faster">
     <div id="logo-container" class="anim animFadeIn">
       <img src="@/assets/dumbbell.svg" />
     </div>
@@ -29,17 +29,22 @@ export default {
   position: fixed;
   background-color: #111111;
   z-index: 100;
-  /* right: 0;
-  height: 100vh; */
   height: 50px;
   width: 100vw;
   top: 0;
   animation-delay: 1.5s;
 
   #logo-container {
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 0;
+    padding: 10px;
+    height: 100%;
+    animation-delay: 2s;
+
+    img {
+      height: 100%;
+    }
   }
 
   #nav-menu-button {
@@ -66,16 +71,27 @@ export default {
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   #nav {
-    position: fixed;
     right: 0;
     height: 100vh;
     width: 60px;
+
+    #logo-container {
+      position: absolute;
+      left: calc(-100vw + 100%);
+      top: 0;
+      padding: 0;
+      height: 50px;
+      padding: 10px;
+
+      img {
+        height: 100%;
+      }
+    }
 
     #nav-menu-button {
       background-color: #42b983;
       width: 60px;
       height: 50px;
-      float: right;
     }
 
     #nav-list {
@@ -101,6 +117,11 @@ export default {
 @media (min-width: 992px) {
   #nav {
     width: 80px;
+
+    #logo-container {
+      height: 70px;
+    }
+
     #nav-list {
       height: 70px;
       font-size: 20px;

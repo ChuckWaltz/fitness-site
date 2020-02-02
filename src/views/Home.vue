@@ -28,7 +28,7 @@
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam, id
           ab.
         </p>
-        <div id="ts-content-button" class="animSection animFadeInLeft delay-3s">
+        <div id="ts-content-button" class="animSection animFadeInLeft">
           <h3>
             Explore
             <font-awesome-icon icon="caret-right" />
@@ -288,6 +288,7 @@ export default {
 
     #ts-content-button {
       cursor: pointer;
+      animation-delay: 2s;
 
       h3 {
         margin-top: 10px;
