@@ -1,16 +1,16 @@
 <template>
-  <div id="nav" class="wow slideInRight">
-    <div id="logo-container" class="wow fadeIn" data-wow-delay="1s">
+  <div id="nav" class="anim animSlideInRight">
+    <div id="logo-container" class="anim animFadeIn">
       <img src="@/assets/dumbbell.svg" />
     </div>
     <div id="nav-menu-button">
       <img src="@/assets/menu_bars.svg" />
     </div>
     <ul id="nav-list">
-      <li class="wow fadeInDown" data-wow-delay="1s">ABOUT</li>
-      <li class="wow fadeInDown" data-wow-delay="1.25s">SERVICES</li>
-      <li class="wow fadeInDown" data-wow-delay="1.5s">INSTRUCTORS</li>
-      <li class="wow fadeInDown" data-wow-delay="1.75s">CONTACT</li>
+      <li class="anim animFadeInDown delay-2s">ABOUT</li>
+      <li class="anim animFadeInDown delay-2s">SERVICES</li>
+      <li class="anim animFadeInDown delay-2s">INSTRUCTORS</li>
+      <li class="anim animFadeInDown delay-2s">CONTACT</li>
     </ul>
     <!-- <router-link to="/">Home</router-link>|
       <router-link to="/about">About</router-link>-->
@@ -34,16 +34,12 @@ export default {
   height: 50px;
   width: 100vw;
   top: 0;
+  animation-delay: 1.5s;
 
   #logo-container {
-    position: absolute;
-    padding: 12px;
-    height: 100%;
-
-    img {
-      max-width: 100%;
-      max-height: 100%;
-    }
+    position: fixed;
+    left: 0;
+    top: 0;
   }
 
   #nav-menu-button {
@@ -63,6 +59,7 @@ export default {
     display: none;
     letter-spacing: 2px;
     font-size: 18px;
+    color: rgb(160, 160, 160);
   }
 }
 
@@ -74,21 +71,6 @@ export default {
     height: 100vh;
     width: 60px;
 
-    #logo-container {
-      position: fixed;
-      left: 0;
-      top: 0;
-      padding: 0;
-      margin-left: 30px;
-      margin-top: 30px;
-      height: 72px;
-
-      img {
-        max-width: 100%;
-        max-height: 100%;
-      }
-    }
-
     #nav-menu-button {
       background-color: #42b983;
       width: 60px;
@@ -97,7 +79,6 @@ export default {
     }
 
     #nav-list {
-      color: white;
       position: absolute;
       transform: translate(-100%);
       display: flex;

@@ -2,7 +2,7 @@
   <div id="home" class="scrollSection1">
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-    <div id="carousel-buttons">
+    <div id="carousel-buttons" class="anim animFadeInLeft delay-2s">
       <div
         class="carouselButton"
         v-bind:class="{ carouselButtonActive: currentScrollSection === 1 }"
@@ -16,34 +16,36 @@
         v-bind:class="{ carouselButtonActive: currentScrollSection === 3 }"
       ></div>
     </div>
-    <div id="top-section" class="scrollSection">
-      <div id="ts-circle" class="wow fadeIn">
-        <div id="ts-image" class="wow fadeIn" data-wow-delay="0.5s"></div>
-        <div id="ts-circle-text">TRU FIT</div>
+    <div id="top-section" class="scrollSection ss1">
+      <div id="ts-circle" class="anim animFadeIn">
+        <div id="ts-image" class="anim animFadeIn"></div>
+        <div id="ts-circle-text" class="anim animFadeIn">
+          TRU FIT
+        </div>
       </div>
-      <div id="ts-content-container" class="wow fadeIn" data-wow-delay="1s">
-        <p>
+      <div id="ts-content-container">
+        <p class="anim animFadeIn delay-2s">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam, id
           ab.
         </p>
-        <div id="ts-content-button">
-          <h3 class="wow slideInLeft" data-wow-delay="2s">
+        <div id="ts-content-button" class="anim animFadeInLeft delay-3s">
+          <h3>
             Explore
             <font-awesome-icon icon="caret-right" />
           </h3>
         </div>
       </div>
     </div>
-    <div id="about-section" class="scrollSection">
-      <div class="sectionText">ABOUT</div>
+    <div id="about-section" class="scrollSection ss2">
+      <div class="sectionText anim animFadeIn">ABOUT</div>
     </div>
-    <div id="services-section" class="scrollSection">
+    <div id="services-section" class="scrollSection ss3">
       <div class="sectionText">SERVICES</div>
     </div>
-    <div id="instructors-section" class="scrollSection">
+    <div id="instructors-section" class="scrollSection ss4">
       <div>INSTRUCTORS</div>
     </div>
-    <div id="contact-section" class="scrollSection">
+    <div id="contact-section" class="scrollSection ss5">
       <div>CONTACT</div>
     </div>
   </div>
@@ -117,6 +119,9 @@ export default {
         this.canAddScrollCount = true;
       }, 50);
     });
+
+    // Init first section animations
+    this.animateSection(this.currentScrollSection);
   },
   methods: {
     scrollPage() {
@@ -149,10 +154,29 @@ export default {
       document.getElementById("home").style.bottom = `${this
         .currentScrollSection - 1}00vh`;
 
+      this.animateSection(this.currentScrollSection);
+
       setTimeout(() => {
         this.canAddScrollCount = true;
         this.scrollCount = 0;
       }, 1000);
+    },
+
+    animateSection(scrollSection) {
+      const elements = document.querySelectorAll(`.ss${scrollSection} .anim`);
+      elements.forEach(el => {
+        const classList = [...el.classList];
+        let replaceClass = classList.find(
+          c => c.includes("anim") && c !== "anim"
+        );
+        if (replaceClass) {
+          replaceClass = replaceClass.replace("anim", "");
+          replaceClass =
+            replaceClass.charAt(0).toLowerCase() + replaceClass.slice(1);
+        }
+        window.console.log(replaceClass);
+        el.classList.add("animated", replaceClass);
+      });
     }
   }
 };
@@ -176,6 +200,7 @@ export default {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      transform-origin: center center;
       color: black;
       font-size: 32px;
     }
@@ -196,7 +221,7 @@ export default {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    background-color: white;
+    background-color: rgb(160, 160, 160);
     cursor: pointer;
   }
 
@@ -217,6 +242,7 @@ export default {
     border: 5vh solid #42b983;
     width: 70vh;
     height: 70vh;
+    animation-delay: 0s;
 
     #ts-image {
       position: absolute;
@@ -230,6 +256,7 @@ export default {
       background-size: auto 90%;
       background-repeat: no-repeat;
       background-position: center;
+      animation-delay: 0.75s;
     }
 
     #ts-circle-text {
@@ -238,7 +265,7 @@ export default {
       font-family: "Exo", sans-serif;
       letter-spacing: 12px;
       font-size: 20vmin;
-      font-weight: 700;
+      font-weight: bold;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -282,6 +309,7 @@ export default {
 
 #about-section {
   background-color: white;
+  position: relative;
 }
 
 #services-section {
