@@ -17,18 +17,18 @@
       ></div>
     </div>
     <div id="top-section" class="scrollSection ss1">
-      <div id="ts-circle" class="anim animFadeIn">
-        <div id="ts-image" class="anim animFadeIn"></div>
-        <div id="ts-circle-text" class="anim animFadeIn">
+      <div id="ts-circle" class="animSection animFadeIn">
+        <div id="ts-image" class="animSection animFadeIn"></div>
+        <div id="ts-circle-text" class="animSection animFadeIn">
           TRU FIT
         </div>
       </div>
       <div id="ts-content-container">
-        <p class="anim animFadeIn delay-2s">
+        <p class="animSection animFadeIn delay-2s">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam, id
           ab.
         </p>
-        <div id="ts-content-button" class="anim animFadeInLeft delay-3s">
+        <div id="ts-content-button" class="animSection animFadeInLeft delay-3s">
           <h3>
             Explore
             <font-awesome-icon icon="caret-right" />
@@ -37,7 +37,7 @@
       </div>
     </div>
     <div id="about-section" class="scrollSection ss2">
-      <div class="sectionText anim animFadeIn">ABOUT</div>
+      <div class="sectionText animSection animFadeIn">ABOUT</div>
     </div>
     <div id="services-section" class="scrollSection ss3">
       <div class="sectionText">SERVICES</div>
@@ -163,11 +163,13 @@ export default {
     },
 
     animateSection(scrollSection) {
-      const elements = document.querySelectorAll(`.ss${scrollSection} .anim`);
+      const elements = document.querySelectorAll(
+        `.ss${scrollSection} .animSection`
+      );
       elements.forEach(el => {
         const classList = [...el.classList];
         let replaceClass = classList.find(
-          c => c.includes("anim") && c !== "anim"
+          c => c.includes("anim") && c !== "animSection"
         );
         if (replaceClass) {
           replaceClass = replaceClass.replace("anim", "");

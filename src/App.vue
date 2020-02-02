@@ -18,9 +18,7 @@ export default {
   },
   methods: {
     initializeGlobalAnimations() {
-      const elements = document.querySelectorAll(
-        `#nav.anim, #nav-list > .anim, #carousel-buttons`
-      );
+      const elements = document.querySelectorAll(`.anim`);
       elements.forEach(el => {
         const classList = [...el.classList];
         let replaceClass = classList.find(
