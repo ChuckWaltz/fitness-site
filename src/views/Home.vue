@@ -6,14 +6,27 @@
       <div
         class="carouselButton"
         v-bind:class="{ carouselButtonActive: currentScrollSection === 1 }"
+        v-on:click="goToSection(1)"
       ></div>
       <div
         class="carouselButton"
         v-bind:class="{ carouselButtonActive: currentScrollSection === 2 }"
+        v-on:click="goToSection(2)"
       ></div>
       <div
         class="carouselButton"
         v-bind:class="{ carouselButtonActive: currentScrollSection === 3 }"
+        v-on:click="goToSection(3)"
+      ></div>
+      <div
+        class="carouselButton"
+        v-bind:class="{ carouselButtonActive: currentScrollSection === 4 }"
+        v-on:click="goToSection(4)"
+      ></div>
+      <div
+        class="carouselButton"
+        v-bind:class="{ carouselButtonActive: currentScrollSection === 5 }"
+        v-on:click="goToSection(5)"
       ></div>
     </div>
     <div id="top-section" class="scrollSection ss1">
@@ -28,7 +41,11 @@
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam, id
           ab.
         </p>
-        <div id="ts-content-button" class="animSection animFadeInLeft">
+        <div
+          id="ts-content-button"
+          class="animSection animFadeInLeft"
+          v-on:click="goToSection(2)"
+        >
           <h3>
             Explore
             <font-awesome-icon icon="caret-right" />
@@ -64,7 +81,7 @@ export default {
       scrollDirection: "down",
       canAddScrollCount: true,
       currentScrollSection: 1,
-      scrollSectionsCount: 3,
+      scrollSectionsCount: 5,
       touchStart: null
       // -- End Scrolling Variables
     };
@@ -73,6 +90,11 @@ export default {
     //HelloWorld
   },
   mounted() {
+    // Listen for goToSection event
+    this.$root.$on("goToSection", section => {
+      this.goToSection(section);
+    });
+
     // Handle default scrolling
     window.addEventListener("wheel", event => {
       if (this.canAddScrollCount === false) return;
@@ -162,6 +184,21 @@ export default {
       }, 1000);
     },
 
+    goToSection(section) {
+      this.currentScrollSection = section;
+      document
+        .getElementById("home")
+        .classList.add(`scrollSection${this.currentScrollSection}`);
+
+      document.getElementById("home").style.bottom = `${this
+        .currentScrollSection - 1}00vh`;
+
+      this.animateSection(this.currentScrollSection);
+
+      this.canAddScrollCount = true;
+      this.scrollCount = 0;
+    },
+
     animateSection(scrollSection) {
       const elements = document.querySelectorAll(
         `.ss${scrollSection} .animSection`
@@ -190,7 +227,7 @@ export default {
   position: fixed;
   bottom: 0;
 
-  transition: bottom 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: bottom 0.75s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   .scrollSection {
     height: 100vh;
@@ -313,6 +350,9 @@ export default {
 #about-section {
   background-color: white;
   position: relative;
+  background-image: url("../assets/man-and-woman-workout.jpg");
+  background-size: cover;
+  background-position: right;
 }
 
 #services-section {

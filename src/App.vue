@@ -53,6 +53,9 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
+html, body{
+  background-color: black;
+}
 #app {
   font-family: "Exo", sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -1,25 +1,55 @@
 <template>
   <div id="nav" class="anim animSlideInRight faster">
     <div id="logo-container" class="anim animFadeIn">
-      <img src="@/assets/dumbbell.svg" />
+      <img src="@/assets/dumbbell.svg" v-on:click="goToSection(1)" />
     </div>
     <div id="nav-menu-button">
       <img src="@/assets/menu_bars.svg" />
     </div>
     <ul id="nav-list">
-      <li class="anim animFadeInDown delay-2s">ABOUT</li>
-      <li class="anim animFadeInDown delay-2s">SERVICES</li>
-      <li class="anim animFadeInDown delay-2s">INSTRUCTORS</li>
+      <li class="anim animFadeInDown delay-2s" v-on:click="goToSection(2)">
+        ABOUT
+      </li>
+      <li class="anim animFadeInDown delay-2s" v-on:click="goToSection(3)">
+        SERVICES
+      </li>
+      <li class="anim animFadeInDown delay-2s" v-on:click="goToSection(4)">
+        INSTRUCTORS
+      </li>
       <li class="anim animFadeInDown delay-2s">CONTACT</li>
     </ul>
+    <div id="nav-social-links">
+      <div class="socialLine anim animFadeIn slow"></div>
+      <font-awesome-icon
+        :icon="['fab', 'facebook-square']"
+        id="social-link-facebook"
+        class="anim animBounceIn"
+      /><br />
+      <font-awesome-icon
+        :icon="['fab', 'twitter']"
+        id="social-link-twitter"
+        class="anim animBounceIn"
+      /><br />
+      <font-awesome-icon
+        :icon="['fab', 'instagram']"
+        id="social-link-instagram"
+        class="anim animBounceIn"
+      />
+      <div class="socialLine anim animFadeIn slow"></div>
+    </div>
     <!-- <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>-->
+    <router-link to="/about">About</router-link>-->
   </div>
 </template>
 
 <script>
 export default {
-  name: "Nav"
+  name: "Nav,",
+  methods: {
+    goToSection(section) {
+      this.$root.$emit("goToSection", section);
+    }
+  }
 };
 </script>
 
@@ -44,6 +74,7 @@ export default {
 
     img {
       height: 100%;
+      cursor: pointer;
     }
   }
 
@@ -65,6 +96,29 @@ export default {
     letter-spacing: 2px;
     font-size: 18px;
     color: rgb(160, 160, 160);
+  }
+
+  #nav-social-links {
+    display: none;
+
+    .socialLine {
+      border-left: 1px solid white;
+      height: 40px;
+      transform: translateX(50%);
+      margin-top: 2vh;
+      margin-bottom: 2vh;
+      animation-delay: 2s;
+    }
+
+    #social-link-facebook {
+      animation-delay: 2s;
+    }
+    #social-link-twitter {
+      animation-delay: 2.25s;
+    }
+    #social-link-instagram {
+      animation-delay: 2.5s;
+    }
   }
 }
 
@@ -110,16 +164,30 @@ export default {
         }
       }
     }
+
+    #nav-social-links {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      svg {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 26px;
+      }
+    }
   }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   #nav {
-    width: 80px;
+    width: 70px;
 
     #logo-container {
-      height: 70px;
+      height: 60px;
     }
 
     #nav-list {
@@ -130,9 +198,9 @@ export default {
       }
     }
     #nav-menu-button {
-      width: 80px;
-      height: 70px;
-      padding: 20px;
+      width: 70px;
+      height: 60px;
+      padding: 15px;
     }
   }
 }
