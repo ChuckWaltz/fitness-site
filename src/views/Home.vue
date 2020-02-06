@@ -54,7 +54,24 @@
       </div>
     </div>
     <div id="about-section" class="scrollSection ss2">
-      <div class="sectionText animSection animFadeIn">ABOUT</div>
+      <div id="as-design" class="animSection animSlideInRight"></div>
+      <div id="as-content">
+        <h2>OUR FOCUS IS ON YOU</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni nobis
+          incidunt exercitationem, ipsa ratione aperiam eos, excepturi quisquam
+          delectus expedita rem placeat totam illum libero. Lorem ipsum dolor
+          sit amet consectetur, adipisicing elit. Consequatur, voluptate.
+        </p>
+      </div>
+
+      <div id="as-design-2" class="animSection animSlideInRight"></div>
+
+      <img
+        id="as-runner-img"
+        class="animSection animFadeInLeft"
+        src="@/assets/runner.png"
+      />
     </div>
     <div id="services-section" class="scrollSection ss3">
       <div class="sectionText">SERVICES</div>
@@ -177,6 +194,7 @@ export default {
         .currentScrollSection - 1}00vh`;
 
       this.animateSection(this.currentScrollSection);
+      this.$parent.activeSection = this.currentScrollSection;
 
       setTimeout(() => {
         this.canAddScrollCount = true;
@@ -194,6 +212,7 @@ export default {
         .currentScrollSection - 1}00vh`;
 
       this.animateSection(this.currentScrollSection);
+      this.$parent.activeSection = this.currentScrollSection;
 
       this.canAddScrollCount = true;
       this.scrollCount = 0;
@@ -206,14 +225,13 @@ export default {
       elements.forEach(el => {
         const classList = [...el.classList];
         let replaceClass = classList.find(
-          c => c.includes("anim") && c !== "animSection"
+          c => c.includes("anim") && c !== "animSection" && c !== "animated"
         );
         if (replaceClass) {
           replaceClass = replaceClass.replace("anim", "");
           replaceClass =
             replaceClass.charAt(0).toLowerCase() + replaceClass.slice(1);
         }
-        window.console.log(replaceClass);
         el.classList.add("animated", replaceClass);
       });
     }
@@ -252,7 +270,7 @@ export default {
   top: calc(50% - 15px);
   left: 0;
   margin-left: 35px;
-  z-index: 100;
+  z-index: 1000;
 
   .carouselButton {
     margin-bottom: 15px;
@@ -350,19 +368,95 @@ export default {
 #about-section {
   background-color: white;
   position: relative;
-  background-image: url("../assets/man-and-woman-workout.jpg");
+  //background-image: url("../assets/man-and-woman-workout.jpg");
   background-size: cover;
   background-position: right;
+
+  #as-runner-img {
+    position: absolute;
+    left: 10vw;
+    bottom: 0;
+    height: 90%;
+  }
+
+  #as-content {
+    position: absolute;
+    bottom: 30%;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.85);
+    color: black;
+    width: 100vw;
+    padding: 15px 5vw;
+    border-top: 3px solid #42b983;
+    border-bottom: 3px solid #42b983;
+    z-index: 100;
+
+    h2 {
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  #as-design {
+    position: absolute;
+    bottom: calc(30% - 3vh);
+    left: 0;
+    width: 100%;
+    border-top: 3vh solid #42b983;
+  }
+
+  #as-design-2 {
+    position: absolute;
+    top: 30vh;
+    right: 0;
+    width: 90%;
+    border-top: 3vh solid #42b983;
+    animation-delay: 0.25s;
+    animation-duration: 1.5s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
 }
 
 #services-section {
   background-color: black;
 }
 
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  #about-section {
+    #as-content {
+      right: 60px;
+      width: calc(100% - 60px);
+
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   #carousel-buttons {
     display: block;
+  }
+
+  #about-section {
+    #as-content {
+      position: absolute;
+      bottom: 30%;
+      right: 70px;
+      color: black;
+      width: calc(100% - 70px);
+      padding: 15px 5vw;
+
+      p {
+        font-size: 20px;
+      }
+    }
   }
 }
 </style>

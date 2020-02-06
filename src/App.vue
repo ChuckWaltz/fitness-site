@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Nav />
+    <Nav v-bind:active-section="activeSection" />
     <router-view />
   </div>
 </template>
@@ -13,6 +13,11 @@ export default {
   components: {
     Nav
   },
+  data() {
+    return {
+      activeSection: 1
+    };
+  },
   mounted() {
     this.initializeGlobalAnimations();
   },
@@ -22,14 +27,13 @@ export default {
       elements.forEach(el => {
         const classList = [...el.classList];
         let replaceClass = classList.find(
-          c => c.includes("anim") && c !== "anim"
+          c => c.includes("anim") && c !== "anim" && c !== "animated"
         );
         if (replaceClass) {
           replaceClass = replaceClass.replace("anim", "");
           replaceClass =
             replaceClass.charAt(0).toLowerCase() + replaceClass.slice(1);
         }
-        window.console.log(replaceClass);
         el.classList.add("animated", replaceClass);
       });
     }
@@ -53,7 +57,8 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
-html, body{
+html,
+body {
   background-color: black;
 }
 #app {
@@ -63,11 +68,5 @@ html, body{
   text-align: center;
   color: white;
   background-color: black;
-}
-.anim {
-  visibility: hidden;
-}
-.animated {
-  visibility: visible;
 }
 </style>

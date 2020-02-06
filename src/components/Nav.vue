@@ -7,33 +7,51 @@
       <img src="@/assets/menu_bars.svg" />
     </div>
     <ul id="nav-list">
-      <li class="anim animFadeInDown delay-2s" v-on:click="goToSection(2)">
+      <li
+        class="anim animFadeInDown delay-2s"
+        v-on:click="goToSection(2)"
+        v-bind:class="{ activeLink: activeSection === 2 }"
+      >
         ABOUT
       </li>
-      <li class="anim animFadeInDown delay-2s" v-on:click="goToSection(3)">
+      <li
+        class="anim animFadeInDown delay-2s"
+        v-on:click="goToSection(3)"
+        v-bind:class="{ activeLink: activeSection === 3 }"
+      >
         SERVICES
       </li>
-      <li class="anim animFadeInDown delay-2s" v-on:click="goToSection(4)">
+      <li
+        class="anim animFadeInDown delay-2s"
+        v-on:click="goToSection(4)"
+        v-bind:class="{ activeLink: activeSection === 4 }"
+      >
         INSTRUCTORS
       </li>
-      <li class="anim animFadeInDown delay-2s">CONTACT</li>
+      <li
+        class="anim animFadeInDown delay-2s"
+        v-on:click="goToSection(5)"
+        v-bind:class="{ activeLink: activeSection === 5 }"
+      >
+        CONTACT
+      </li>
     </ul>
     <div id="nav-social-links">
       <div class="socialLine anim animFadeIn slow"></div>
       <font-awesome-icon
         :icon="['fab', 'facebook-square']"
         id="social-link-facebook"
-        class="anim animBounceIn"
+        class="anim animFadeIn socialLink"
       /><br />
       <font-awesome-icon
         :icon="['fab', 'twitter']"
         id="social-link-twitter"
-        class="anim animBounceIn"
+        class="anim animFadeIn socialLink"
       /><br />
       <font-awesome-icon
         :icon="['fab', 'instagram']"
         id="social-link-instagram"
-        class="anim animBounceIn"
+        class="anim animFadeIn socialLink"
       />
       <div class="socialLine anim animFadeIn slow"></div>
     </div>
@@ -45,6 +63,7 @@
 <script>
 export default {
   name: "Nav,",
+  props: ["activeSection"],
   methods: {
     goToSection(section) {
       this.$root.$emit("goToSection", section);
@@ -98,8 +117,22 @@ export default {
     color: rgb(160, 160, 160);
   }
 
+  .activeLink {
+    color: #42b983;
+    font-weight: bold;
+  }
+
   #nav-social-links {
     display: none;
+
+    .socialLink {
+      cursor: pointer;
+      transition: 0.1s all linear;
+      &:hover {
+        color: #42b983;
+        transform: scale(1.25);
+      }
+    }
 
     .socialLine {
       border-left: 1px solid white;
