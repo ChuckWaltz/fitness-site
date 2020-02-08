@@ -32,20 +32,14 @@
     <div id="top-section" class="scrollSection ss1">
       <div id="ts-circle" class="animSection animFadeIn">
         <div id="ts-image" class="animSection animFadeIn"></div>
-        <div id="ts-circle-text" class="animSection animFadeIn">
-          TRU FIT
-        </div>
+        <div id="ts-circle-text" class="animSection animFadeIn">TRU FIT</div>
       </div>
       <div id="ts-content-container">
         <p class="animSection animFadeIn delay-2s">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam, id
           ab.
         </p>
-        <div
-          id="ts-content-button"
-          class="animSection animFadeInLeft"
-          v-on:click="goToSection(2)"
-        >
+        <div id="ts-content-button" class="animSection animFadeInLeft" v-on:click="goToSection(2)">
           <h3>
             Explore
             <font-awesome-icon icon="caret-right" />
@@ -54,24 +48,31 @@
       </div>
     </div>
     <div id="about-section" class="scrollSection ss2">
+      <img id="dots-bg-1" class="dots-bg wow fadeIn" src="@/assets/dots_bg1.svg" />
+      <img id="dots-bg-2" class="dots-bg wow fadeIn" src="@/assets/dots_bg2.svg" />
+      <img id="dots-bg-3" class="dots-bg wow fadeIn" src="@/assets/dots_bg3.svg" />
+      <img id="dots-bg-4" class="dots-bg wow fadeIn" src="@/assets/dots_bg1.svg" />
+      <img id="dots-bg-5" class="dots-bg wow fadeIn" src="@/assets/dots_bg2.svg" />
+      <img id="dots-bg-6" class="dots-bg wow fadeIn" src="@/assets/dots_bg3.svg" />
+      <img id="dots-bg-7" class="dots-bg wow fadeIn" src="@/assets/dots_bg1.svg" />
+      <img id="dots-bg-8" class="dots-bg wow fadeIn" src="@/assets/dots_bg2.svg" />
+      <img id="dots-bg-9" class="dots-bg wow fadeIn" src="@/assets/dots_bg3.svg" />
       <div id="as-design" class="animSection animSlideInRight"></div>
       <div id="as-content">
-        <h2>OUR FOCUS IS ON YOU</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni nobis
-          incidunt exercitationem, ipsa ratione aperiam eos, excepturi quisquam
-          delectus expedita rem placeat totam illum libero. Lorem ipsum dolor
-          sit amet consectetur, adipisicing elit. Consequatur, voluptate.
-        </p>
+        <div id="as-content-inner">
+          <h2>OUR FOCUS IS ON YOU</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni nobis
+            incidunt exercitationem, ipsa ratione aperiam eos, excepturi quisquam
+            delectus expedita rem placeat totam illum libero. Lorem ipsum dolor
+            sit amet consectetur, adipisicing elit. Consequatur, voluptate.
+          </p>
+        </div>
       </div>
 
       <div id="as-design-2" class="animSection animSlideInRight"></div>
 
-      <img
-        id="as-runner-img"
-        class="animSection animFadeInLeft"
-        src="@/assets/runner.png"
-      />
+      <img id="as-runner-img" class="animSection animFadeInLeft" src="@/assets/runner.png" />
     </div>
     <div id="services-section" class="scrollSection ss3">
       <div class="sectionText">SERVICES</div>
@@ -372,6 +373,118 @@ export default {
   background-size: cover;
   background-position: right;
 
+  .dots-bg {
+    display: none;
+  }
+
+  #dots-bg-1 {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    animation-name: bgMove1;
+    animation-duration: 120s;
+    animation-timing-function: linear;
+  }
+
+  #dots-bg-2 {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    animation-name: bgMove1;
+    animation-duration: 90s;
+    animation-timing-function: linear;
+  }
+
+  #dots-bg-3 {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    animation-name: bgMove1;
+    animation-duration: 60s;
+    animation-timing-function: linear;
+  }
+
+  #dots-bg-4 {
+    position: absolute;
+    top: 0;
+    animation-name: bgMove2;
+    animation-duration: 240s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  #dots-bg-5 {
+    position: absolute;
+    top: 0;
+    animation-name: bgMove2;
+    animation-duration: 180s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  #dots-bg-6 {
+    position: absolute;
+    top: 0;
+    animation-name: bgMove2;
+    animation-duration: 120s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  #dots-bg-7 {
+    position: absolute;
+    top: 0;
+    animation-name: bgMove3;
+    animation-duration: 480s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  #dots-bg-8 {
+    position: absolute;
+    top: 0;
+    animation-name: bgMove3;
+    animation-duration: 360s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  #dots-bg-9 {
+    position: absolute;
+    top: 0;
+    animation-name: bgMove3;
+    animation-duration: 240s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes bgMove1 {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: -100%;
+    }
+  }
+
+  @keyframes bgMove2 {
+    0% {
+      left: 100%;
+    }
+    100% {
+      left: -100%;
+    }
+  }
+
+  @keyframes bgMove3 {
+    0% {
+      left: 200%;
+    }
+    100% {
+      left: -100%;
+    }
+  }
+
   #as-runner-img {
     position: absolute;
     left: 10vw;
@@ -390,6 +503,11 @@ export default {
     border-top: 3px solid #42b983;
     border-bottom: 3px solid #42b983;
     z-index: 100;
+
+    #as-content-inner {
+      max-width: 1100px;
+      margin: auto;
+    }
 
     h2 {
       margin-bottom: 5px;
@@ -410,7 +528,7 @@ export default {
 
   #as-design-2 {
     position: absolute;
-    top: 30vh;
+    top: 29vh;
     right: 0;
     width: 90%;
     border-top: 3vh solid #42b983;
@@ -422,6 +540,15 @@ export default {
 
 #services-section {
   background-color: black;
+}
+
+// Small devices in landscape mode
+@media screen and (orientation: landscape) and (max-device-height: 576px) {
+  #about-section {
+    #as-content {
+      bottom: 10%;
+    }
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
@@ -456,6 +583,12 @@ export default {
       p {
         font-size: 20px;
       }
+    }
+  }
+
+  #about-section {
+    .dots-bg {
+      display: block;
     }
   }
 }
