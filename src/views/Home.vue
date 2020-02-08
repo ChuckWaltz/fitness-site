@@ -375,86 +375,64 @@ export default {
 
   .dots-bg {
     display: none;
+    position: absolute;
+    top: 0;
+    height: 100vw;
+    width: auto;
+    animation-timing-function: linear;
   }
 
   #dots-bg-1 {
-    position: absolute;
-    top: 0;
     left: 100%;
     animation-name: bgMove1;
     animation-duration: 120s;
-    animation-timing-function: linear;
   }
 
   #dots-bg-2 {
-    position: absolute;
-    top: 0;
     left: 100%;
     animation-name: bgMove1;
     animation-duration: 90s;
-    animation-timing-function: linear;
   }
 
   #dots-bg-3 {
-    position: absolute;
-    top: 0;
     left: 100%;
     animation-name: bgMove1;
     animation-duration: 60s;
-    animation-timing-function: linear;
   }
 
   #dots-bg-4 {
-    position: absolute;
-    top: 0;
     animation-name: bgMove2;
     animation-duration: 240s;
-    animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
 
   #dots-bg-5 {
-    position: absolute;
-    top: 0;
     animation-name: bgMove2;
     animation-duration: 180s;
-    animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
 
   #dots-bg-6 {
-    position: absolute;
-    top: 0;
     animation-name: bgMove2;
     animation-duration: 120s;
-    animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
 
   #dots-bg-7 {
-    position: absolute;
-    top: 0;
     animation-name: bgMove3;
     animation-duration: 480s;
-    animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
 
   #dots-bg-8 {
-    position: absolute;
-    top: 0;
     animation-name: bgMove3;
     animation-duration: 360s;
-    animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
 
   #dots-bg-9 {
-    position: absolute;
-    top: 0;
     animation-name: bgMove3;
     animation-duration: 240s;
-    animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
 
@@ -462,8 +440,12 @@ export default {
     0% {
       left: 0;
     }
+    90% {
+      opacity: 1;
+    }
     100% {
       left: -100%;
+      opacity: 0;
     }
   }
 
@@ -471,8 +453,12 @@ export default {
     0% {
       left: 100%;
     }
+    90% {
+      opacity: 1;
+    }
     100% {
       left: -100%;
+      opacity: 0;
     }
   }
 
@@ -480,8 +466,12 @@ export default {
     0% {
       left: 200%;
     }
+    90% {
+      opacity: 1;
+    }
     100% {
       left: -100%;
+      opacity: 0;
     }
   }
 
