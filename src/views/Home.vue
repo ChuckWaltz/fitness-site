@@ -297,9 +297,9 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    border: 5vh solid #42b983;
-    width: 70vh;
-    height: 70vh;
+    border: 5vmin solid #42b983;
+    width: 80vmin;
+    height: 80vmin;
     animation-delay: 0s;
 
     #ts-image {
@@ -307,8 +307,8 @@ export default {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 100vw;
-      height: 100vh;
+      width: 200%;
+      height: 200%;
       padding: 30px 40px;
       background-image: url("../assets/fitness-girl-cropped-update.png");
       background-size: auto 90%;
@@ -479,12 +479,12 @@ export default {
     position: absolute;
     left: 10vw;
     bottom: 0;
-    height: 90%;
+    height: 80%;
   }
 
   #as-content {
     position: absolute;
-    bottom: 30%;
+    bottom: calc(30% - 1px);
     right: 0;
     background-color: rgba(255, 255, 255, 0.85);
     color: black;
@@ -544,6 +544,9 @@ export default {
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   #about-section {
+    #as-runner-img {
+      height: 90%;
+    }
     #as-content {
       right: 60px;
       width: calc(100% - 60px);
@@ -557,6 +560,12 @@ export default {
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
+  #top-section {
+    #ts-circle {
+      width: 70vmin;
+      height: 70vmin;
+    }
+  }
   #carousel-buttons {
     display: block;
   }
