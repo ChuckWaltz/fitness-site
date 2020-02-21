@@ -75,7 +75,10 @@
       <img id="as-runner-img" class="animSection animFadeInLeft" src="@/assets/runner.png" />
     </div>
     <div id="services-section" class="scrollSection ss3">
-      <div class="sectionText">SERVICES</div>
+      <div id="ss-item-1" class="ssItem animSection animSlideInLeft"></div>
+      <div id="ss-item-2" class="ssItem animSection animSlideInLeft"></div>
+      <div id="ss-item-3" class="ssItem animSection animSlideInRight"></div>
+      <div id="ss-item-4" class="ssItem animSection animSlideInRight"></div>
     </div>
     <div id="instructors-section" class="scrollSection ss4">
       <div>INSTRUCTORS</div>
@@ -530,6 +533,36 @@ export default {
 
 #services-section {
   background-color: black;
+  display: flex;
+
+  .ssItem {
+    width: 25%;
+    background-position: center;
+    background-size: cover;
+  }
+
+  #ss-item-1 {
+    background-image: url("../assets/man-sitting-weights.jpg");
+  }
+  #ss-item-2 {
+    background-image: url("../assets/woman-with-trainer.jpg");
+    z-index: 100;
+    animation-delay: 0.25s;
+  }
+  #ss-item-3 {
+    background-image: url("../assets/man-jumping-ball.jpg");
+    z-index: 100;
+    animation-delay: 0.25s;
+  }
+  #ss-item-4 {
+    background-image: url("../assets/woman-boxing.jpg");
+  }
+}
+
+#instructors-section {
+  background-position: center;
+  background-size: cover;
+  background-image: url("../assets/man-and-woman-workout.jpg");
 }
 
 // Small devices in landscape mode
@@ -555,6 +588,10 @@ export default {
         font-size: 18px;
       }
     }
+  }
+
+  #services-section {
+    padding-right: 60px;
   }
 }
 
@@ -583,12 +620,14 @@ export default {
         font-size: 20px;
       }
     }
-  }
 
-  #about-section {
     .dots-bg {
       display: block;
     }
+  }
+
+  #services-section {
+    padding-right: 70px;
   }
 }
 </style>
