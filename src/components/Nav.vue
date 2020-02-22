@@ -6,35 +6,11 @@
     <div id="nav-menu-button">
       <img src="@/assets/menu_bars.svg" />
     </div>
-    <ul id="nav-list">
-      <li
-        class="anim animFadeInDown delay-2s"
-        v-on:click="goToSection(2)"
-        v-bind:class="{ activeLink: activeSection === 2 }"
-      >
-        ABOUT
-      </li>
-      <li
-        class="anim animFadeInDown delay-2s"
-        v-on:click="goToSection(3)"
-        v-bind:class="{ activeLink: activeSection === 3 }"
-      >
-        SERVICES
-      </li>
-      <li
-        class="anim animFadeInDown delay-2s"
-        v-on:click="goToSection(4)"
-        v-bind:class="{ activeLink: activeSection === 4 }"
-      >
-        INSTRUCTORS
-      </li>
-      <li
-        class="anim animFadeInDown delay-2s"
-        v-on:click="goToSection(5)"
-        v-bind:class="{ activeLink: activeSection === 5 }"
-      >
-        CONTACT
-      </li>
+    <ul id="nav-list" class="anim animFadeInDown delay-2s">
+      <li v-on:click="goToSection(2)" v-bind:class="{ activeLink: activeSection === 2 }">ABOUT</li>
+      <li v-on:click="goToSection(3)" v-bind:class="{ activeLink: activeSection === 3 }">SERVICES</li>
+      <li v-on:click="goToSection(4)" v-bind:class="{ activeLink: activeSection === 4 }">INSTRUCTORS</li>
+      <li v-on:click="goToSection(5)" v-bind:class="{ activeLink: activeSection === 5 }">CONTACT</li>
     </ul>
     <div id="nav-social-links">
       <div class="socialLine anim animFadeIn slow"></div>
@@ -42,12 +18,14 @@
         :icon="['fab', 'facebook-square']"
         id="social-link-facebook"
         class="anim animFadeIn socialLink"
-      /><br />
+      />
+      <br />
       <font-awesome-icon
         :icon="['fab', 'twitter']"
         id="social-link-twitter"
         class="anim animFadeIn socialLink"
-      /><br />
+      />
+      <br />
       <font-awesome-icon
         :icon="['fab', 'instagram']"
         id="social-link-instagram"
@@ -112,9 +90,12 @@ export default {
 
   #nav-list {
     display: none;
+    list-style: none;
     letter-spacing: 2px;
     font-size: 18px;
     color: rgb(160, 160, 160);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-left: 10px solid #42b983;
   }
 
   .activeLink {
@@ -183,11 +164,11 @@ export default {
 
     #nav-list {
       position: absolute;
-      transform: translate(-100%);
+      right: 100%;
       display: flex;
       height: 50px;
-      list-style: none;
       align-items: center;
+      padding-left: 40px;
       li {
         margin-right: 25px;
 
@@ -224,7 +205,7 @@ export default {
     }
 
     #nav-list {
-      height: 70px;
+      height: 60px;
       font-size: 20px;
       li {
         margin-right: 35px;

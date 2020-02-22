@@ -75,10 +75,30 @@
       <img id="as-runner-img" class="animSection animFadeInLeft" src="@/assets/runner.png" />
     </div>
     <div id="services-section" class="scrollSection ss3">
-      <div id="ss-item-1" class="ssItem animSection animSlideInLeft"></div>
-      <div id="ss-item-2" class="ssItem animSection animSlideInLeft"></div>
-      <div id="ss-item-3" class="ssItem animSection animSlideInRight"></div>
-      <div id="ss-item-4" class="ssItem animSection animSlideInRight"></div>
+      <div id="ss-item-1" class="ssItem animSection animSlideInLeft">
+        <div class="ssItemOverlay">
+          <h3>Full-Service Gym</h3>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam, architecto. Atque odio ipsam quis laudantium accusantium officiis non quae doloribus.</p>
+        </div>
+      </div>
+      <div id="ss-item-2" class="ssItem animSection animSlideInLeft">
+        <div class="ssItemOverlay">
+          <h3>Personal Training</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, nostrum et hic id a perferendis.</p>
+        </div>
+      </div>
+      <div id="ss-item-3" class="ssItem animSection animSlideInRight">
+        <div class="ssItemOverlay">
+          <h3>Cross-Fit Courses</h3>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam aliquam dignissimos aliquid amet cupiditate tenetur animi nostrum aspernatur.</p>
+        </div>
+      </div>
+      <div id="ss-item-4" class="ssItem animSection animSlideInRight">
+        <div class="ssItemOverlay">
+          <h3>Alternative Regimens</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore esse aspernatur eaque optio, libero doloremque laborum!</p>
+        </div>
+      </div>
     </div>
     <div id="instructors-section" class="scrollSection ss4">
       <div>INSTRUCTORS</div>
@@ -306,7 +326,7 @@ export default {
     animation-delay: 0s;
 
     #ts-image {
-      position: absolute;
+      position: relative;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -314,7 +334,7 @@ export default {
       height: 200%;
       padding: 30px 40px;
       background-image: url("../assets/fitness-girl-cropped-update.png");
-      background-size: auto 90%;
+      background-size: auto 80%;
       background-repeat: no-repeat;
       background-position: center;
       animation-delay: 0.75s;
@@ -534,28 +554,61 @@ export default {
 #services-section {
   background-color: black;
   display: flex;
+  flex-direction: column;
+  padding-top: 50px;
 
   .ssItem {
-    width: 25%;
+    width: 100%;
+    height: 25%;
     background-position: center;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    &:hover {
+      .ssItemOverlay {
+        opacity: 1 !important;
+      }
+    }
+  }
+
+  .ssItemOverlay {
+    opacity: 1;
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.5);
+    transition: all 0.25s linear;
+
+    h3 {
+      font-size: 20px;
+      color: #42b983;
+    }
+    p {
+      font-size: 16px;
+    }
   }
 
   #ss-item-1 {
-    background-image: url("../assets/man-sitting-weights.jpg");
+    background-image: url("../assets/man-sitting-weights-wide.jpg");
+    border-bottom: 0.33vh solid #42b983;
   }
   #ss-item-2 {
-    background-image: url("../assets/woman-with-trainer.jpg");
+    background-image: url("../assets/woman-with-trainer-wide.jpg");
     z-index: 100;
     animation-delay: 0.25s;
+    border-bottom: 0.33vh solid #42b983;
+    border-top: 0.33vh solid #42b983;
   }
   #ss-item-3 {
-    background-image: url("../assets/man-jumping-ball.jpg");
+    background-image: url("../assets/man-jumping-ball-wide.jpg");
     z-index: 100;
     animation-delay: 0.25s;
+    border-bottom: 0.33vh solid #42b983;
+    border-top: 0.33vh solid #42b983;
   }
   #ss-item-4 {
-    background-image: url("../assets/woman-boxing.jpg");
+    background-image: url("../assets/woman-boxing-wide.jpg");
+    border-top: 0.33vh solid #42b983;
   }
 }
 
@@ -591,6 +644,7 @@ export default {
   }
 
   #services-section {
+    padding-top: 0;
     padding-right: 60px;
   }
 }
@@ -603,6 +657,7 @@ export default {
       height: 70vmin;
     }
   }
+
   #carousel-buttons {
     display: block;
   }
@@ -628,6 +683,49 @@ export default {
 
   #services-section {
     padding-right: 70px;
+  }
+}
+
+// Landscape orientation
+@media (orientation: landscape) {
+  #services-section {
+    flex-direction: row;
+
+    .ssItem {
+      height: 100%;
+      width: 25%;
+      background-position: center;
+      background-size: cover;
+    }
+
+    #ss-item-1 {
+      background-image: url("../assets/man-sitting-weights-tall.jpg");
+      border: none;
+      border-right: 0.33vw solid #42b983;
+      animation-duration: 0.85s;
+    }
+    #ss-item-2 {
+      background-image: url("../assets/woman-with-trainer-tall.jpg");
+      border: none;
+      border-left: 0.33vw solid #42b983;
+      border-right: 0.33vw solid #42b983;
+      animation-duration: 0.85s;
+      z-index: 100;
+    }
+    #ss-item-3 {
+      background-image: url("../assets/man-jumping-ball-tall.jpg");
+      border: none;
+      border-left: 0.33vw solid #42b983;
+      border-right: 0.33vw solid #42b983;
+      animation-duration: 0.85s;
+      z-index: 100;
+    }
+    #ss-item-4 {
+      background-image: url("../assets/woman-boxing-tall.jpg");
+      border: none;
+      border-left: 0.33vw solid #42b983;
+      animation-duration: 0.85s;
+    }
   }
 }
 </style>
