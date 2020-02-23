@@ -77,31 +77,34 @@
     <div id="services-section" class="scrollSection ss3">
       <div id="ss-item-1" class="ssItem animSection animSlideInLeft">
         <div class="ssItemOverlay">
-          <h3>Full-Service Gym</h3>
+          <h3>FULL-SERVICE GYM</h3>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam, architecto. Atque odio ipsam quis laudantium accusantium officiis non quae doloribus.</p>
         </div>
       </div>
       <div id="ss-item-2" class="ssItem animSection animSlideInLeft">
         <div class="ssItemOverlay">
-          <h3>Personal Training</h3>
+          <h3>PERSONAL TRAINING</h3>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, nostrum et hic id a perferendis.</p>
         </div>
       </div>
       <div id="ss-item-3" class="ssItem animSection animSlideInRight">
         <div class="ssItemOverlay">
-          <h3>Cross-Fit Courses</h3>
+          <h3>CROSS-FIT COURSES</h3>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam aliquam dignissimos aliquid amet cupiditate tenetur animi nostrum aspernatur.</p>
         </div>
       </div>
       <div id="ss-item-4" class="ssItem animSection animSlideInRight">
         <div class="ssItemOverlay">
-          <h3>Alternative Regimens</h3>
+          <h3>ALTERNATIVE REGIMENS</h3>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore esse aspernatur eaque optio, libero doloremque laborum!</p>
         </div>
       </div>
     </div>
     <div id="instructors-section" class="scrollSection ss4">
-      <div>INSTRUCTORS</div>
+      <div id="is-content" class="animSection animFadeIn">
+        <h3>ACE CERTIFIED PROFESSIONAL INSTRUCTORS</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum sapiente amet laboriosam eveniet earum autem quidem consequuntur laudantium id exercitationem, quaerat libero labore accusantium illo voluptatem qui veniam provident officia.</p>
+      </div>
     </div>
     <div id="contact-section" class="scrollSection ss5">
       <div>CONTACT</div>
@@ -264,6 +267,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#carousel-buttons {
+  display: none;
+  position: fixed;
+  top: calc(50% - 15px);
+  left: 0;
+  margin-left: 35px;
+  z-index: 1000;
+
+  .carouselButton {
+    margin-bottom: 15px;
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: rgb(160, 160, 160);
+    cursor: pointer;
+  }
+
+  .carouselButtonActive {
+    background-color: #42b983;
+  }
+}
+
 #home {
   height: 100vh;
   position: fixed;
@@ -285,29 +311,6 @@ export default {
       color: black;
       font-size: 32px;
     }
-  }
-}
-
-#carousel-buttons {
-  display: none;
-  position: fixed;
-  top: calc(50% - 15px);
-  left: 0;
-  margin-left: 35px;
-  z-index: 1000;
-
-  .carouselButton {
-    margin-bottom: 15px;
-    display: block;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background-color: rgb(160, 160, 160);
-    cursor: pointer;
-  }
-
-  .carouselButtonActive {
-    background-color: #42b983;
   }
 }
 
@@ -569,28 +572,35 @@ export default {
     &:hover {
       .ssItemOverlay {
         opacity: 1 !important;
+
+        p {
+          display: block;
+        }
       }
     }
-  }
 
-  .ssItemOverlay {
-    opacity: 1;
-    padding: 5px 10px;
-    background: rgba(0, 0, 0, 0.5);
-    transition: all 0.25s linear;
+    .ssItemOverlay {
+      opacity: 1;
+      padding: 5px 10px;
+      background: rgba(0, 0, 0, 0.5);
+      transition: all 0.25s linear;
 
-    h3 {
-      font-size: 20px;
-      color: #42b983;
-    }
-    p {
-      font-size: 16px;
+      h3 {
+        font-size: 20px;
+        color: #42b983;
+      }
+      p {
+        font-size: 16px;
+        display: none;
+        transition: 0.2s all linear;
+      }
     }
   }
 
   #ss-item-1 {
     background-image: url("../assets/man-sitting-weights-wide.jpg");
     border-bottom: 0.33vh solid #42b983;
+    animation-duration: 0.85s;
   }
   #ss-item-2 {
     background-image: url("../assets/woman-with-trainer-wide.jpg");
@@ -598,6 +608,7 @@ export default {
     animation-delay: 0.25s;
     border-bottom: 0.33vh solid #42b983;
     border-top: 0.33vh solid #42b983;
+    animation-duration: 0.85s;
   }
   #ss-item-3 {
     background-image: url("../assets/man-jumping-ball-wide.jpg");
@@ -605,26 +616,43 @@ export default {
     animation-delay: 0.25s;
     border-bottom: 0.33vh solid #42b983;
     border-top: 0.33vh solid #42b983;
+    animation-duration: 0.85s;
   }
   #ss-item-4 {
     background-image: url("../assets/woman-boxing-wide.jpg");
     border-top: 0.33vh solid #42b983;
+    animation-duration: 0.85s;
   }
 }
 
 #instructors-section {
-  background-position: center;
+  background-position: right;
   background-size: cover;
   background-image: url("../assets/man-and-woman-workout.jpg");
-}
+  display: flex;
+  align-items: center;
 
-// Small devices in landscape mode
-@media screen and (orientation: landscape) and (max-device-height: 576px) {
-  #about-section {
-    #as-content {
-      bottom: 10%;
+  #is-content {
+    max-width: 600px;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-top: 1vh solid #42b983;
+    border-bottom: 1vh solid #42b983;
+
+    h3 {
+      color: #42b983;
+      font-size: 22px;
+    }
+    p {
+      font-size: 16px;
     }
   }
+}
+
+#contact-section {
+  background-color: white;
+  color: black;
 }
 
 // Small devices (landscape phones, 576px and up)
@@ -646,20 +674,33 @@ export default {
   #services-section {
     padding-top: 0;
     padding-right: 60px;
+
+    .ssItem {
+      .ssItemOverlay {
+        padding: 10px;
+        p {
+          display: block;
+        }
+      }
+    }
+  }
+
+  #instructors-section {
+    padding-right: 60px;
   }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
+  #carousel-buttons {
+    display: block;
+  }
+
   #top-section {
     #ts-circle {
       width: 70vmin;
       height: 70vmin;
     }
-  }
-
-  #carousel-buttons {
-    display: block;
   }
 
   #about-section {
@@ -683,6 +724,27 @@ export default {
 
   #services-section {
     padding-right: 70px;
+
+    .ssItem {
+      .ssItemOverlay {
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+
+        h3 {
+          font-size: 24px;
+        }
+        p {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  #instructors-section {
+    padding-right: 70px;
   }
 }
 
@@ -702,14 +764,12 @@ export default {
       background-image: url("../assets/man-sitting-weights-tall.jpg");
       border: none;
       border-right: 0.33vw solid #42b983;
-      animation-duration: 0.85s;
     }
     #ss-item-2 {
       background-image: url("../assets/woman-with-trainer-tall.jpg");
       border: none;
       border-left: 0.33vw solid #42b983;
       border-right: 0.33vw solid #42b983;
-      animation-duration: 0.85s;
       z-index: 100;
     }
     #ss-item-3 {
@@ -717,14 +777,25 @@ export default {
       border: none;
       border-left: 0.33vw solid #42b983;
       border-right: 0.33vw solid #42b983;
-      animation-duration: 0.85s;
       z-index: 100;
     }
     #ss-item-4 {
       background-image: url("../assets/woman-boxing-tall.jpg");
       border: none;
       border-left: 0.33vw solid #42b983;
-      animation-duration: 0.85s;
+    }
+  }
+
+  #instructors-section {
+    background-position: center;
+  }
+}
+
+// Small devices in landscape mode
+@media screen and (orientation: landscape) and (max-device-height: 576px) {
+  #about-section {
+    #as-content {
+      bottom: 10%;
     }
   }
 }
