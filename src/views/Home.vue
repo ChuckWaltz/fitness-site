@@ -395,7 +395,6 @@ export default {
 #about-section {
   background-color: white;
   position: relative;
-  //background-image: url("../assets/man-and-woman-workout.jpg");
   background-size: cover;
   background-position: right;
 
@@ -628,7 +627,7 @@ export default {
 #instructors-section {
   background-position: right;
   background-size: cover;
-  background-image: url("../assets/man-and-woman-workout.jpg");
+  background-image: url("../assets/man-and-woman-workout-clipped.jpg");
   display: flex;
   align-items: center;
 
@@ -637,8 +636,8 @@ export default {
     margin: auto;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
-    border-top: 1vh solid #42b983;
-    border-bottom: 1vh solid #42b983;
+    border-top: 0.75vh solid #42b983;
+    border-bottom: 0.75vh solid #42b983;
 
     h3 {
       color: #42b983;
@@ -745,6 +744,15 @@ export default {
 
   #instructors-section {
     padding-right: 70px;
+
+    #is-content {
+      h3 {
+        font-size: 24px;
+      }
+      p {
+        font-size: 18px;
+      }
+    }
   }
 }
 
@@ -788,6 +796,7 @@ export default {
 
   #instructors-section {
     background-position: center;
+    background-image: url("../assets/man-and-woman-workout.jpg");
   }
 }
 
