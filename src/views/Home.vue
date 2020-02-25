@@ -101,13 +101,13 @@
       </div>
     </div>
     <div id="instructors-section" class="scrollSection ss4">
-      <div id="is-content" class="animSection animFadeIn">
+      <div id="is-content" class="animSection animZoomIn">
         <h3>ACE CERTIFIED PROFESSIONAL INSTRUCTORS</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum sapiente amet laboriosam eveniet earum autem quidem consequuntur laudantium id exercitationem, quaerat libero labore accusantium illo voluptatem qui veniam provident officia.</p>
       </div>
     </div>
     <div id="contact-section" class="scrollSection ss5">
-      <div>CONTACT</div>
+      <img id="cs-image" src="@/assets/fitness-image.png" class="animSection animFadeIn" />
     </div>
   </div>
 </template>
@@ -636,8 +636,8 @@ export default {
     margin: auto;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
-    border-top: 0.75vh solid #42b983;
-    border-bottom: 0.75vh solid #42b983;
+    border-top: 1vh solid #42b983;
+    border-bottom: 1vh solid #42b983;
 
     h3 {
       color: #42b983;
@@ -652,6 +652,14 @@ export default {
 #contact-section {
   background-color: white;
   color: black;
+
+  #cs-image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-width: 90vw;
+    height: auto;
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
@@ -686,6 +694,15 @@ export default {
 
   #instructors-section {
     padding-right: 60px;
+  }
+
+  #contact-section {
+    padding-right: 60px;
+
+    #cs-image {
+      right: 60px;
+      max-width: 60vw;
+    }
   }
 }
 
@@ -731,6 +748,7 @@ export default {
         left: 50%;
         transform: translate(-50%, -50%);
         width: 100%;
+        padding: 20px 10px;
 
         h3 {
           font-size: 24px;
@@ -746,12 +764,21 @@ export default {
     padding-right: 70px;
 
     #is-content {
+      padding: 15px;
       h3 {
         font-size: 24px;
       }
       p {
         font-size: 18px;
       }
+    }
+  }
+
+  #contact-section {
+    padding-right: 70px;
+
+    #cs-image {
+      right: 70px;
     }
   }
 }
@@ -798,6 +825,12 @@ export default {
     background-position: center;
     background-image: url("../assets/man-and-woman-workout.jpg");
   }
+
+  #contact-section {
+    #cs-image {
+      max-width: 40vw;
+    }
+  }
 }
 
 // Small devices in landscape mode
@@ -805,6 +838,13 @@ export default {
   #about-section {
     #as-content {
       bottom: 10%;
+    }
+  }
+
+  #contact-section {
+    #cs-image {
+      max-width: unset;
+      max-height: 80vh;
     }
   }
 }
