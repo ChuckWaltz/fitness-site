@@ -54,9 +54,6 @@
       <img id="dots-bg-4" class="dots-bg wow fadeIn" src="@/assets/dots_bg1.svg" />
       <img id="dots-bg-5" class="dots-bg wow fadeIn" src="@/assets/dots_bg2.svg" />
       <img id="dots-bg-6" class="dots-bg wow fadeIn" src="@/assets/dots_bg3.svg" />
-      <img id="dots-bg-7" class="dots-bg wow fadeIn" src="@/assets/dots_bg1.svg" />
-      <img id="dots-bg-8" class="dots-bg wow fadeIn" src="@/assets/dots_bg2.svg" />
-      <img id="dots-bg-9" class="dots-bg wow fadeIn" src="@/assets/dots_bg3.svg" />
       <div id="as-design" class="animSection animSlideInRight"></div>
       <div id="as-content">
         <div id="as-content-inner">
@@ -107,19 +104,44 @@
       </div>
     </div>
     <div id="contact-section" class="scrollSection ss5">
+      <div id="cs-content">
+        <div
+          id="cs-content-bar-1"
+          class="csContentBar animSection"
+          v-bind:class="{ animSlideInLeft: windowWidth < 576, animZoomIn: windowWidth >= 576 }"
+        ></div>
+        <h3>CONTACT US</h3>
+        <div
+          id="cs-content-bar-2"
+          class="csContentBar animSection"
+          v-bind:class="{ animSlideInRight: windowWidth < 576, animZoomIn: windowWidth >= 576 }"
+        ></div>
+        <div id="cs-content-inner">
+          <div id="cs-content-phone" class="csiItem animSection animZoomIn">
+            <font-awesome-icon icon="phone-square-alt" />
+            <p>332-359-7990</p>
+          </div>
+          <div id="cs-content-email" class="csiItem animSection animZoomIn">
+            <font-awesome-icon icon="envelope" />
+            <p>CONTACT@TRUFIT.COM</p>
+          </div>
+          <div id="cs-content-hours" class="csiItem animSection animZoomIn">
+            <font-awesome-icon icon="clock" />
+            <p>DAILY 5:00AM - 12:00AM</p>
+          </div>
+        </div>
+      </div>
       <img id="cs-image" src="@/assets/fitness-image.png" class="animSection animFadeIn" />
     </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from "@/components/HelloWorld.vue";
-
 export default {
   name: "home",
   data() {
     return {
+      windowWidth: null,
       // -- Scrolling Variables
       scrollCount: 0,
       scrollDirection: "down",
@@ -130,10 +152,9 @@ export default {
       // -- End Scrolling Variables
     };
   },
-  components: {
-    //HelloWorld
-  },
   mounted() {
+    this.windowWidth = window.innerWidth;
+
     // Listen for goToSection event
     this.$root.$on("goToSection", section => {
       this.goToSection(section);
@@ -652,13 +673,54 @@ export default {
 #contact-section {
   background-color: white;
   color: black;
+  display: grid;
+  grid-template-rows: auto 45%;
+  grid-template-columns: 100%;
+  grid-template-areas: "content content" "image image";
+  padding-top: 50px;
 
   #cs-image {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    max-width: 90vw;
-    height: auto;
+    grid-area: image;
+    max-height: 90%;
+    margin-left: auto;
+    margin-top: auto;
+  }
+
+  #cs-content {
+    grid-area: content;
+    padding-top: 4vh;
+
+    h3 {
+      font-size: 22px;
+      margin: 20px 0px;
+    }
+
+    #cs-content-bar-1 {
+      width: 90%;
+    }
+
+    #cs-content-bar-2 {
+      width: 90%;
+      margin-left: auto;
+    }
+
+    .csContentBar {
+      border-top: 15px solid #42b983;
+    }
+
+    #cs-content-inner {
+      .csiItem {
+        p {
+          font-size: 18px;
+        }
+        svg {
+          margin-top: 20px;
+          margin-bottom: 10px;
+          color: #42b983;
+          font-size: 24px;
+        }
+      }
+    }
   }
 }
 
@@ -698,10 +760,43 @@ export default {
 
   #contact-section {
     padding-right: 60px;
+    grid-template-rows: 100%;
+    grid-template-columns: 60% auto;
+    grid-template-areas: "content image";
+    padding-top: 2vh;
 
     #cs-image {
-      right: 60px;
-      max-width: 60vw;
+      margin-top: auto;
+    }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  #contact-section {
+    padding-top: 4vh;
+    #cs-image {
+      max-height: 80%;
+    }
+
+    #cs-content {
+      padding-top: 7vh;
+
+      h3 {
+        font-size: 26px;
+      }
+
+      #cs-content-inner {
+        .csiItem {
+          margin-top: 20px;
+          p {
+            font-size: 22px;
+          }
+          svg {
+            font-size: 32px;
+          }
+        }
+      }
     }
   }
 }
@@ -775,11 +870,32 @@ export default {
   }
 
   #contact-section {
-    padding-right: 70px;
+    #cs-content {
+      padding-top: 15vh;
 
-    #cs-image {
-      right: 70px;
+      h3 {
+        font-size: 26px;
+      }
+
+      #cs-content-inner {
+        .csiItem {
+          margin-top: 20px;
+          p {
+            font-size: 22px;
+          }
+          svg {
+            font-size: 32px;
+          }
+        }
+      }
     }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  #cs-content {
+    padding-right: 50px;
   }
 }
 
@@ -845,6 +961,40 @@ export default {
     #cs-image {
       max-width: unset;
       max-height: 80vh;
+    }
+
+    #cs-content {
+      padding-top: 75px;
+      h3 {
+        margin: 10px 0px;
+      }
+
+      #cs-content-inner {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-areas:
+          "phone email"
+          "hours hours";
+        height: 10vh;
+
+        .csiItem {
+          margin-top: 25px;
+          svg {
+            margin: 0;
+            margin-bottom: 10px;
+          }
+        }
+
+        #cs-content-phone {
+          grid-area: phone;
+        }
+        #cs-content-email {
+          grid-area: email;
+        }
+        #cs-content-hours {
+          grid-area: hours;
+        }
+      }
     }
   }
 }
