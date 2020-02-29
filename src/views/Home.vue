@@ -751,6 +751,7 @@ export default {
     margin-top: unset;
 
     .ssItem {
+      height: calc(100% / 4 - 37px);
       .ssItemOverlay {
         padding: 10px;
         p {
