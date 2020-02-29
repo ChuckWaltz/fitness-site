@@ -585,7 +585,7 @@ export default {
     background-size: cover;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
 
     &:hover {
       .ssItemOverlay {
@@ -609,7 +609,6 @@ export default {
       }
       p {
         font-size: 16px;
-        display: none;
         transition: 0.2s all linear;
       }
     }
@@ -752,6 +751,7 @@ export default {
 
     .ssItem {
       height: calc(100% / 4);
+      justify-content: flex-end;
       .ssItemOverlay {
         padding: 10px;
         p {
@@ -961,7 +961,7 @@ export default {
 }
 
 // Small devices in landscape mode
-@media screen and (orientation: landscape) and (max-device-height: 576px) {
+@media screen and (orientation: landscape) and (max-height: 576px) {
   #about-section {
     #as-content {
       bottom: 10%;
