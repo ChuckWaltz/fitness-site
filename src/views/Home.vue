@@ -1,7 +1,5 @@
 <template>
   <div id="home" class="scrollSection1">
-    <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
     <div id="carousel-buttons" class="anim animFadeInLeft delay-2s">
       <div
         class="carouselButton"
