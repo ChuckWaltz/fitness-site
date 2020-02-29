@@ -748,6 +748,7 @@ export default {
   #services-section {
     padding-top: 0;
     padding-right: 60px;
+    margin-top: unset;
 
     .ssItem {
       .ssItemOverlay {
@@ -756,6 +757,10 @@ export default {
           display: block;
         }
       }
+    }
+
+    #ss-item-1 {
+      margin-top: unset;
     }
   }
 
