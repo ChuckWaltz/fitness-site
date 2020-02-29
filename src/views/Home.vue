@@ -774,7 +774,7 @@ export default {
     grid-template-rows: 100%;
     grid-template-columns: 60% auto;
     grid-template-areas: "content image";
-    padding-top: 8vh;
+    padding-top: 2vh;
 
     #cs-image {
       margin-top: auto;
@@ -785,13 +785,13 @@ export default {
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   #contact-section {
-    padding-top: 12vh;
+    padding-top: 4vh;
     #cs-image {
       max-height: 80%;
     }
 
     #cs-content {
-      padding-top: 7vh;
+      padding-top: 16vh;
 
       h3 {
         font-size: 26px;
