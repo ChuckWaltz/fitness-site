@@ -1,10 +1,11 @@
 <template>
-  <div id="nav" class="anim animSlideInRight faster">
+  <div id="nav" class="anim animSlideInRight faster navClosed">
     <div id="logo-container" class="anim animFadeIn">
       <img src="@/assets/dumbbell.svg" v-on:click="goToSection(1)" />
     </div>
-    <div id="nav-menu-button">
-      <img src="@/assets/menu_bars.svg" />
+    <div id="nav-menu-button" v-on:click="toggleNav()">
+      <img src="@/assets/menu_bars.svg" v-if="navClosed || !isMobile" />
+      <font-awesome-icon icon="times" v-if="!navClosed && isMobile" />
     </div>
     <ul id="nav-list" class="anim animFadeInDown delay-2s">
       <li v-on:click="goToSection(2)" v-bind:class="{ activeLink: activeSection === 2 }">ABOUT</li>
@@ -40,11 +41,45 @@
 
 <script>
 export default {
-  name: "Nav,",
+  name: "Navbar",
   props: ["activeSection"],
+  data() {
+    return {
+      isMobile: false,
+      navClosed: true
+    };
+  },
+  mounted() {
+    window.onresize = () => {
+      if (window.innerWidth >= 576) {
+        this.isMobile = false;
+        this.navClosed = false;
+      } else {
+        this.isMobile = true;
+        this.navClosed = true;
+      }
+
+      let navElement = document.getElementById("nav");
+      if (this.navClosed) navElement.classList.add("navClosed");
+      else navElement.classList.remove("navClosed");
+    };
+    window.onresize();
+  },
   methods: {
     goToSection(section) {
+      this.navClosed = true;
       this.$root.$emit("goToSection", section);
+    },
+    toggleNav() {
+      if (this.isMobile) {
+        this.navClosed = !this.navClosed;
+      } else {
+        this.navClosed = false;
+        return;
+      }
+      let navElement = document.getElementById("nav");
+      if (this.navClosed) navElement.classList.add("navClosed");
+      else navElement.classList.remove("navClosed");
     }
   }
 };
@@ -76,6 +111,7 @@ export default {
   }
 
   #nav-menu-button {
+    position: relative;
     background-color: #42b983;
     width: 60px;
     height: 100%;
@@ -86,10 +122,18 @@ export default {
       max-width: 100%;
       max-height: 100%;
     }
+
+    svg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: black;
+      font-size: 32px;
+    }
   }
 
   #nav-list {
-    display: none;
     list-style: none;
     letter-spacing: 2px;
     font-size: 18px;
@@ -132,6 +176,38 @@ export default {
     }
     #social-link-instagram {
       animation-delay: 2.5s;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  #nav-menu-button {
+    cursor: pointer;
+  }
+
+  #nav-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 15px;
+    list-style: none;
+    letter-spacing: 2px;
+    font-size: 18px;
+    background-color: #111111 !important;
+    border-left: 10px solid #42b983;
+    z-index: -100;
+    transition: all 0.15s linear;
+
+    li {
+      padding-top: 15px;
+    }
+  }
+  .navClosed {
+    #nav-list {
+      left: 100%;
     }
   }
 }

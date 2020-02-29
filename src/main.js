@@ -7,7 +7,8 @@ import {
   faCaretRight,
   faPhoneSquareAlt,
   faClock,
-  faEnvelope
+  faEnvelope,
+  faTimes
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faTwitter,
@@ -20,6 +21,7 @@ library.add(
   faCaretRight,
   faPhoneSquareAlt,
   faClock,
+  faTimes,
   faEnvelope,
   faTwitter,
   faFacebookSquare,

@@ -993,6 +993,9 @@ export default {
             margin: 0;
             margin-bottom: 10px;
           }
+          p {
+            font-size: 16px;
+          }
         }
 
         #cs-content-phone {
