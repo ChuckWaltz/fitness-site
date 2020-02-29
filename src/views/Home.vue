@@ -355,7 +355,7 @@ export default {
       width: 200%;
       height: 200%;
       padding: 30px 40px;
-      background-image: url("../assets/fitness-girl-cropped-update.png");
+      background-image: url("../assets/fitness-girl-cropped-update-2.png");
       background-size: auto 80%;
       background-repeat: no-repeat;
       background-position: center;
