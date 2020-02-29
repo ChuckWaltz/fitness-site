@@ -321,7 +321,6 @@ export default {
     width: 100vw;
     overflow: hidden;
     position: relative;
-    padding-top: 50px;
     .sectionText {
       position: absolute;
       top: 50%;
@@ -577,11 +576,11 @@ export default {
   background-color: black;
   display: flex;
   flex-direction: column;
-  padding-top: 50px;
+  margin-top: 50px;
 
   .ssItem {
     width: 100%;
-    height: 25%;
+    height: calc(100% / 4 - 37px);
     background-position: center;
     background-size: cover;
     display: flex;
@@ -620,6 +619,7 @@ export default {
     background-image: url("../assets/man-sitting-weights-wide.jpg");
     border-bottom: 0.33vh solid #42b983;
     animation-duration: 0.85s;
+    margin-top: 100px;
   }
   #ss-item-2 {
     background-image: url("../assets/woman-with-trainer-wide.jpg");
@@ -676,7 +676,7 @@ export default {
   grid-template-rows: auto 45%;
   grid-template-columns: 100%;
   grid-template-areas: "content content" "image image";
-  padding-top: 50px;
+  padding-top: 100px;
 
   #cs-image {
     grid-area: image;
