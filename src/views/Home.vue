@@ -585,7 +585,7 @@ export default {
     background-size: cover;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
 
     &:hover {
       .ssItemOverlay {
@@ -751,7 +751,6 @@ export default {
 
     .ssItem {
       height: calc(100% / 4);
-      justify-content: flex-end;
       .ssItemOverlay {
         padding: 10px;
         p {
