@@ -321,6 +321,7 @@ export default {
     width: 100vw;
     overflow: hidden;
     position: relative;
+    padding-top: 50px;
     .sectionText {
       position: absolute;
       top: 50%;
@@ -724,6 +725,12 @@ export default {
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
+  #home {
+    .scrollSection {
+      padding-top: unset;
+    }
+  }
+
   #about-section {
     #as-runner-img {
       height: 90%;
