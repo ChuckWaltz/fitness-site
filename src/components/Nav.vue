@@ -4,8 +4,9 @@
       <img src="@/assets/dumbbell.svg" v-on:click="goToSection(1)" />
     </div>
     <div id="nav-menu-button" v-on:click="toggleNav()">
-      <img src="@/assets/menu_bars.svg" v-if="navClosed || !isMobile" />
+      <img src="@/assets/menu_bars.svg" v-if="navClosed && isMobile" />
       <font-awesome-icon icon="times" v-if="!navClosed && isMobile" />
+      <img src="@/assets/tf_logo_black.png" v-if="!isMobile" />
     </div>
     <ul id="nav-list" class="anim animFadeInDown delay-2s">
       <li v-on:click="goToSection(2)" v-bind:class="{ activeLink: activeSection === 2 }">ABOUT</li>
@@ -75,6 +76,7 @@ export default {
         this.navClosed = !this.navClosed;
       } else {
         this.navClosed = false;
+        this.goToSection(1);
         return;
       }
       let navElement = document.getElementById("nav");
@@ -117,6 +119,7 @@ export default {
     height: 100%;
     float: right;
     padding: 12px;
+    cursor: pointer;
 
     img {
       max-width: 100%;
