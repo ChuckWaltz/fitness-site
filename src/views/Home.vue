@@ -37,7 +37,11 @@
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam, id
           ab.
         </p>
-        <div id="ts-content-button" class="animSection animFadeInLeft" v-on:click="goToSection(2)">
+        <div
+          id="ts-content-button"
+          class="animSection animFadeInLeft"
+          v-on:click="goToSection(2)"
+        >
           <h3>
             Explore
             <font-awesome-icon icon="caret-right" />
@@ -46,59 +50,107 @@
       </div>
     </div>
     <div id="about-section" class="scrollSection ss2">
-      <img id="dots-bg-1" class="dots-bg wow fadeIn" src="@/assets/dots_bg1.svg" />
-      <img id="dots-bg-2" class="dots-bg wow fadeIn" src="@/assets/dots_bg2.svg" />
-      <img id="dots-bg-3" class="dots-bg wow fadeIn" src="@/assets/dots_bg3.svg" />
-      <img id="dots-bg-4" class="dots-bg wow fadeIn" src="@/assets/dots_bg1.svg" />
-      <img id="dots-bg-5" class="dots-bg wow fadeIn" src="@/assets/dots_bg2.svg" />
-      <img id="dots-bg-6" class="dots-bg wow fadeIn" src="@/assets/dots_bg3.svg" />
+      <img
+        id="dots-bg-1"
+        class="dots-bg wow fadeIn"
+        src="@/assets/dots_bg1.svg"
+      />
+      <img
+        id="dots-bg-2"
+        class="dots-bg wow fadeIn"
+        src="@/assets/dots_bg2.svg"
+      />
+      <img
+        id="dots-bg-3"
+        class="dots-bg wow fadeIn"
+        src="@/assets/dots_bg3.svg"
+      />
+      <img
+        id="dots-bg-4"
+        class="dots-bg wow fadeIn"
+        src="@/assets/dots_bg1.svg"
+      />
+      <img
+        id="dots-bg-5"
+        class="dots-bg wow fadeIn"
+        src="@/assets/dots_bg2.svg"
+      />
+      <img
+        id="dots-bg-6"
+        class="dots-bg wow fadeIn"
+        src="@/assets/dots_bg3.svg"
+      />
       <div id="as-design" class="animSection animSlideInRight"></div>
       <div id="as-content">
         <div id="as-content-inner">
           <h2>OUR FOCUS IS ON YOU</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni nobis
-            incidunt exercitationem, ipsa ratione aperiam eos, excepturi quisquam
-            delectus expedita rem placeat totam illum libero. Lorem ipsum dolor
-            sit amet consectetur, adipisicing elit. Consequatur, voluptate.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni
+            nobis incidunt exercitationem, ipsa ratione aperiam eos, excepturi
+            quisquam delectus expedita rem placeat totam illum libero. Lorem
+            ipsum dolor sit amet consectetur, adipisicing elit. Consequatur,
+            voluptate.
           </p>
         </div>
       </div>
 
       <div id="as-design-2" class="animSection animSlideInRight"></div>
 
-      <img id="as-runner-img" class="animSection animFadeInLeft" src="@/assets/runner.png" />
+      <img
+        id="as-runner-img"
+        class="animSection animFadeInLeft"
+        src="@/assets/runner.png"
+      />
     </div>
     <div id="services-section" class="scrollSection ss3">
       <div id="ss-item-1" class="ssItem animSection animSlideInLeft">
         <div class="ssItemOverlay">
           <h3>FULL-SERVICE GYM</h3>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam, architecto. Atque odio ipsam quis laudantium accusantium officiis non quae doloribus.</p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam,
+            architecto. Atque odio ipsam quis laudantium accusantium officiis
+            non quae doloribus.
+          </p>
         </div>
       </div>
       <div id="ss-item-2" class="ssItem animSection animSlideInLeft">
         <div class="ssItemOverlay">
           <h3>PERSONAL TRAINING</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, nostrum et hic id a perferendis.</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione,
+            nostrum et hic id a perferendis.
+          </p>
         </div>
       </div>
       <div id="ss-item-3" class="ssItem animSection animSlideInRight">
         <div class="ssItemOverlay">
           <h3>CROSS-FIT COURSES</h3>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam aliquam dignissimos aliquid amet cupiditate tenetur animi nostrum aspernatur.</p>
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam
+            aliquam dignissimos aliquid amet cupiditate tenetur animi nostrum
+            aspernatur.
+          </p>
         </div>
       </div>
       <div id="ss-item-4" class="ssItem animSection animSlideInRight">
         <div class="ssItemOverlay">
           <h3>ALTERNATIVE REGIMENS</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore esse aspernatur eaque optio, libero doloremque laborum!</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
+            esse aspernatur eaque optio, libero doloremque laborum!
+          </p>
         </div>
       </div>
     </div>
     <div id="instructors-section" class="scrollSection ss4">
       <div id="is-content" class="animSection animZoomIn">
         <h3>ACE CERTIFIED PROFESSIONAL INSTRUCTORS</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum sapiente amet laboriosam eveniet earum autem quidem consequuntur laudantium id exercitationem, quaerat libero labore accusantium illo voluptatem qui veniam provident officia.</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
+          sapiente amet laboriosam eveniet earum autem quidem consequuntur
+          laudantium id exercitationem, quaerat libero labore accusantium illo
+          voluptatem qui veniam provident officia.
+        </p>
       </div>
     </div>
     <div id="contact-section" class="scrollSection ss5">
@@ -106,13 +158,19 @@
         <div
           id="cs-content-bar-1"
           class="csContentBar animSection"
-          v-bind:class="{ animSlideInLeft: windowWidth < 576, animZoomIn: windowWidth >= 576 }"
+          v-bind:class="{
+            animSlideInLeft: windowWidth < 576,
+            animZoomIn: windowWidth >= 576,
+          }"
         ></div>
         <h3>CONTACT US</h3>
         <div
           id="cs-content-bar-2"
           class="csContentBar animSection"
-          v-bind:class="{ animSlideInRight: windowWidth < 576, animZoomIn: windowWidth >= 576 }"
+          v-bind:class="{
+            animSlideInRight: windowWidth < 576,
+            animZoomIn: windowWidth >= 576,
+          }"
         ></div>
         <div id="cs-content-inner">
           <div id="cs-content-phone" class="csiItem animSection animZoomIn">
@@ -129,7 +187,18 @@
           </div>
         </div>
       </div>
-      <img id="cs-image" src="@/assets/fitness-image.png" class="animSection animFadeIn" />
+      <img
+        id="cs-image"
+        src="@/assets/fitness-image.png"
+        class="animSection animFadeIn"
+      />
+    </div>
+    <div
+      id="scroll-down-button"
+      v-if="currentScrollSection < scrollSectionsCount"
+      v-on:click="scrollDown"
+    >
+      <font-awesome-icon icon="chevron-down" />
     </div>
   </div>
 </template>
@@ -146,7 +215,7 @@ export default {
       canAddScrollCount: true,
       currentScrollSection: 1,
       scrollSectionsCount: 5,
-      touchStart: null
+      touchStart: null,
       // -- End Scrolling Variables
     };
   },
@@ -154,12 +223,12 @@ export default {
     this.windowWidth = window.innerWidth;
 
     // Listen for goToSection event
-    this.$root.$on("goToSection", section => {
+    this.$root.$on("goToSection", (section) => {
       this.goToSection(section);
     });
 
     // Handle default scrolling
-    window.addEventListener("wheel", event => {
+    window.addEventListener("wheel", (event) => {
       if (this.canAddScrollCount === false) return;
       this.canAddScrollCount = false;
       const delta = Math.sign(event.deltaY);
@@ -181,10 +250,10 @@ export default {
     });
 
     // Handle mobile touch scrolling
-    window.addEventListener("touchstart", event => {
+    window.addEventListener("touchstart", (event) => {
       this.touchStart = event.touches[0].clientY;
     });
-    window.addEventListener("touchmove", event => {
+    window.addEventListener("touchmove", (event) => {
       if (this.canAddScrollCount === false) return;
       this.canAddScrollCount = false;
       var touchCurrent = event.touches[0].clientY;
@@ -268,10 +337,10 @@ export default {
       const elements = document.querySelectorAll(
         `.ss${scrollSection} .animSection`
       );
-      elements.forEach(el => {
+      elements.forEach((el) => {
         const classList = [...el.classList];
         let replaceClass = classList.find(
-          c => c.includes("anim") && c !== "animSection" && c !== "animated"
+          (c) => c.includes("anim") && c !== "animSection" && c !== "animated"
         );
         if (replaceClass) {
           replaceClass = replaceClass.replace("anim", "");
@@ -280,8 +349,13 @@ export default {
         }
         el.classList.add("animated", replaceClass);
       });
-    }
-  }
+    },
+
+    scrollDown() {
+      this.scrollDirection = "down";
+      this.scrollPage();
+    },
+  },
 };
 </script>
 
@@ -719,6 +793,64 @@ export default {
         }
       }
     }
+  }
+}
+
+#scroll-down-button {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(66, 185, 131, 0.15);
+  border: 2px solid rgba(66, 185, 131, 0.6);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  animation: fadeInUpButton 1s ease-out 2s both,
+    subtleBounce 2s ease-in-out 3s infinite;
+
+  svg {
+    color: rgba(66, 185, 131, 0.8);
+    font-size: 18px;
+    transition: all 0.3s ease;
+  }
+
+  &:hover {
+    background-color: rgba(66, 185, 131, 0.25);
+    border-color: #42b983;
+    animation: fadeInUpButton 1s ease-out 2s both;
+
+    svg {
+      color: #42b983;
+      transform: translateY(2px);
+    }
+  }
+}
+
+@keyframes fadeInUpButton {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes subtleBounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(5px);
   }
 }
 

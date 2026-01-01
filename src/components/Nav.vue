@@ -9,10 +9,30 @@
       <img src="@/assets/tf_logo_black.png" v-if="!isMobile" />
     </div>
     <ul id="nav-list" class="anim animFadeInDown delay-2s">
-      <li v-on:click="goToSection(2)" v-bind:class="{ activeLink: activeSection === 2 }">ABOUT</li>
-      <li v-on:click="goToSection(3)" v-bind:class="{ activeLink: activeSection === 3 }">SERVICES</li>
-      <li v-on:click="goToSection(4)" v-bind:class="{ activeLink: activeSection === 4 }">INSTRUCTORS</li>
-      <li v-on:click="goToSection(5)" v-bind:class="{ activeLink: activeSection === 5 }">CONTACT</li>
+      <li
+        v-on:click="goToSection(2)"
+        v-bind:class="{ activeLink: activeSection === 2 }"
+      >
+        ABOUT
+      </li>
+      <li
+        v-on:click="goToSection(3)"
+        v-bind:class="{ activeLink: activeSection === 3 }"
+      >
+        SERVICES
+      </li>
+      <li
+        v-on:click="goToSection(4)"
+        v-bind:class="{ activeLink: activeSection === 4 }"
+      >
+        INSTRUCTORS
+      </li>
+      <li
+        v-on:click="goToSection(5)"
+        v-bind:class="{ activeLink: activeSection === 5 }"
+      >
+        CONTACT
+      </li>
     </ul>
     <div id="nav-social-links">
       <div class="socialLine anim animFadeIn slow"></div>
