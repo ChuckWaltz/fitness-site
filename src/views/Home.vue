@@ -802,25 +802,44 @@ export default {
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background-color: #42b983;
+  background-color: rgba(66, 185, 131, 0.15);
+  border: 2px solid rgba(66, 185, 131, 0.6);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  animation: subtleBounce 2s ease-in-out infinite;
 
   svg {
-    color: white;
-    font-size: 24px;
+    color: rgba(66, 185, 131, 0.8);
+    font-size: 18px;
+    transition: all 0.3s ease;
   }
 
   &:hover {
-    background-color: #3aa876;
-    transform: translateX(-50%) scale(1.1);
+    background-color: rgba(66, 185, 131, 0.25);
+    border-color: #42b983;
+    animation: none;
+
+    svg {
+      color: #42b983;
+      transform: translateY(2px);
+    }
+  }
+}
+
+@keyframes subtleBounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(5px);
   }
 }
 
