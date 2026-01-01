@@ -160,7 +160,7 @@
           class="csContentBar animSection"
           v-bind:class="{
             animSlideInLeft: windowWidth < 576,
-            animZoomIn: windowWidth >= 576
+            animZoomIn: windowWidth >= 576,
           }"
         ></div>
         <h3>CONTACT US</h3>
@@ -169,7 +169,7 @@
           class="csContentBar animSection"
           v-bind:class="{
             animSlideInRight: windowWidth < 576,
-            animZoomIn: windowWidth >= 576
+            animZoomIn: windowWidth >= 576,
           }"
         ></div>
         <div id="cs-content-inner">
@@ -195,7 +195,6 @@
     </div>
     <div
       id="scroll-down-button"
-      class="anim animFadeInUp delay-2s"
       v-if="currentScrollSection < scrollSectionsCount"
       v-on:click="scrollDown"
     >
@@ -216,7 +215,7 @@ export default {
       canAddScrollCount: true,
       currentScrollSection: 1,
       scrollSectionsCount: 5,
-      touchStart: null
+      touchStart: null,
       // -- End Scrolling Variables
     };
   },
@@ -224,12 +223,12 @@ export default {
     this.windowWidth = window.innerWidth;
 
     // Listen for goToSection event
-    this.$root.$on("goToSection", section => {
+    this.$root.$on("goToSection", (section) => {
       this.goToSection(section);
     });
 
     // Handle default scrolling
-    window.addEventListener("wheel", event => {
+    window.addEventListener("wheel", (event) => {
       if (this.canAddScrollCount === false) return;
       this.canAddScrollCount = false;
       const delta = Math.sign(event.deltaY);
@@ -251,10 +250,10 @@ export default {
     });
 
     // Handle mobile touch scrolling
-    window.addEventListener("touchstart", event => {
+    window.addEventListener("touchstart", (event) => {
       this.touchStart = event.touches[0].clientY;
     });
-    window.addEventListener("touchmove", event => {
+    window.addEventListener("touchmove", (event) => {
       if (this.canAddScrollCount === false) return;
       this.canAddScrollCount = false;
       var touchCurrent = event.touches[0].clientY;
@@ -338,10 +337,10 @@ export default {
       const elements = document.querySelectorAll(
         `.ss${scrollSection} .animSection`
       );
-      elements.forEach(el => {
+      elements.forEach((el) => {
         const classList = [...el.classList];
         let replaceClass = classList.find(
-          c => c.includes("anim") && c !== "animSection" && c !== "animated"
+          (c) => c.includes("anim") && c !== "animSection" && c !== "animated"
         );
         if (replaceClass) {
           replaceClass = replaceClass.replace("anim", "");
@@ -355,8 +354,8 @@ export default {
     scrollDown() {
       this.scrollDirection = "down";
       this.scrollPage();
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -813,7 +812,8 @@ export default {
   justify-content: center;
   z-index: 1000;
   transition: all 0.3s ease;
-  animation: subtleBounce 2s ease-in-out infinite;
+  animation: fadeInUpButton 1s ease-out 2s both,
+    subtleBounce 2s ease-in-out 3s infinite;
 
   svg {
     color: rgba(66, 185, 131, 0.8);
@@ -824,12 +824,23 @@ export default {
   &:hover {
     background-color: rgba(66, 185, 131, 0.25);
     border-color: #42b983;
-    animation: none;
+    animation: fadeInUpButton 1s ease-out 2s both;
 
     svg {
       color: #42b983;
       transform: translateY(2px);
     }
+  }
+}
+
+@keyframes fadeInUpButton {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 }
 
